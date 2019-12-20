@@ -1,0 +1,247 @@
+<!--====== Header  ======-->
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<!-- Brand/logo -->
+<a class="navbar-brand" href="#">Logo</a>
+
+<!-- Links -->
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+ <a class="nav-link" href="#">Hello Sign In <i class="fa fa-user"></i></a>
+</li>
+<li class="nav-item">
+ <a class="nav-link" href="#">Wishes <i class="fa fa-heart"></i></a>
+</li>
+<li class="nav-item">
+ <a class="nav-link" href="#">Cart <i class="fa fa-shopping-cart"></i></a>
+</li>
+</ul>
+</nav>
+</header>
+<!--====== Product Detail  ======-->
+<section class="product_detail">
+    <div class="container" *ngFor="let item of ApiData; let i = index" >
+        <div class="row">
+            <div class="col-md-5 ">
+                <div class="product_view">
+                    <ul>
+                        <li><img src="../../../assets/contents/{{imageFolder}}/{{item.Pic1}}" alt=""></li>
+                        <li><img src="../../../assets/contents/{{imageFolder}}/{{item.Pic2}}" alt=""></li>
+                        <li><img src="../../../assets/contents/{{imageFolder}}/{{item.Pic3}}" alt=""></li>
+                        <li><img src="../../../assets/contents/{{imageFolder}}/{{item.Pic4}}" alt=""></li>
+                    </ul>
+                    <div class="product_img_view">
+                        <img src="../../../assets/contents/{{imageFolder}}/{{item.PicMain}}" alt="">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="product_desc">
+                    <h2>{{item.ProductName}}</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8">                                
+                            <p>{{item.Description}}</p>
+                            <div class="ratting" >
+                                <span [ngClass]="item.StarRating < .9 ?'fa fa-star':'fa fa-star checked'"></span>
+                                <span [ngClass]="item.StarRating < 1.9 ?'fa fa-star':'fa fa-star checked'"></span>
+                                <span [ngClass]="item.StarRating < 2.9 ?'fa fa-star':'fa fa-star checked'"></span>
+                                <span [ngClass]="item.StarRating < 3.9 ?'fa fa-star':'fa fa-star checked'"></span>
+                                <span [ngClass]="item.StarRating < 4.9 ?'fa fa-star':'fa fa-star checked'"></span>
+                            </div>
+                            <div class="review">
+                                <span> {{item.TotalRatings}} ratings | {{item.TotalAnswers}} answered questions</span>
+                            </div>
+                            <ul>
+                                <li><span>Price :</span> {{item.Currency}}&nbsp;{{item.Price}}</li>
+                                <li><span>Brand/Make :</span>{{item.Brand}}</li>
+                                <li><span>Material :</span></li>
+                                <li><span>Color :</span>{{item.Color}}</li>
+                                <li><span>Size :</span> {{item.Size}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{{item.Currency}} &nbsp;{{item.Price}}</h3>
+                            <h5>In Stock</h5>
+                            <select class="custom-select">
+                                <option selected>Qty</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                </select>
+                            <button class="btn"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="btn btn_green"><i class="fa fa-play"></i> Buy Now</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--====== Product Feature  ======-->
+<section class="product_feature">
+    <div class="container"  *ngFor="let item of ApiData; let i = index">
+        <div class="row">
+            <h2>Product Feature</h2>
+            <p>{{item.Features}}</p>
+        </div>
+    </div>
+</section>
+<!--====== Product Benifits  ======-->
+<section class="product_benifits">
+    <div class="container"  *ngFor="let item of ApiData; let i = index">
+        <div class="row">
+            <h2>Product Benifits</h2>
+            <p>{{item.Benefit}}</p>
+        </div>
+    </div>
+</section>
+<!--====== Similar Product  ======-->
+<section class="similar_product">
+    <div class="container"  *ngFor="let item of ApiData; let i = index">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="pb-15">Similar Product</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-6">
+                <div class="product_box">
+                    <div class="product_img">
+                        <img src="../../../assets/contents/{{imageFolder}}/{{item.SPic1}}" alt="">
+                    </div>
+                    <div class="product_box_content">
+                        <span>{{item.SPrice1}}&nbsp;{{item.Currency}}</span>
+                        <span><img src="../../../assets/images/cart.png" alt=""></span>
+                        <span><img src="../../../assets/images/like.png" alt=""></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+                <div class="product_box">
+                    <div class="product_img">
+                        <img src="../../../assets/contents/{{imageFolder}}/{{item.SPic2}}" alt="">
+                    </div>
+                    <div class="product_box_content">
+                        <span>{{item.SPrice2}}&nbsp;{{item.Currency}}</span>
+                        <span><img src="../../../assets/images/cart.png" alt=""></span>
+                        <span><img src="../../../assets/images/like.png" alt=""></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+                <div class="product_box">
+                    <div class="product_img">
+                        <img src="../../../assets/contents/{{imageFolder}}/{{item.SPic3}}" alt="">
+                    </div>
+                    <div class="product_box_content">
+                        <span>{{item.SPrice3}}&nbsp;{{item.Currency}}</span>
+                        <span><img src="../../../assets/images/cart.png" alt=""></span>
+                        <span><img src="../../../assets/images/like.png" alt=""></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+                <div class="product_box">
+                    <div class="product_img">
+                        <img src="../../../assets/contents/{{imageFolder}}/{{item.SPic4}}" alt="">
+                    </div>
+                    <div class="product_box_content">
+                        <span>{{item.SPrice4}}&nbsp;{{item.Currency}}</span>
+                        <span><img src="../../../assets/images/cart.png" alt=""></span>
+                        <span><img src="../../../assets/images/like.png" alt=""></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+                <div class="product_box">
+                    <div class="product_img">
+                        <img src="../../../assets/contents/{{imageFolder}}/{{item.SPic5}}" alt="">
+                    </div>
+                    <div class="product_box_content">
+                        <span>{{item.SPrice5}}&nbsp;{{item.Currency}}</span>
+                        <span><img src="../../../assets/images/cart.png" alt=""></span>
+                        <span><img src="../../../assets/images/like.png" alt=""></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-6">
+                <div class="product_box">
+                    <div class="product_img">
+                        <img src="../../../assets/contents/{{imageFolder}}/{{item.SPic6}}" alt="">
+                    </div>
+                    <div class="product_box_content">
+                        <span>{{item.SPrice6}}&nbsp;{{item.Currency}}</span>
+                        <span><img src="../../../assets/images/cart.png" alt=""></span>
+                        <span><img src="../../../assets/images/like.png" alt=""></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--====== Footer  ======-->
+<footer>
+  <div class="container" >
+    <div class="row footer-top" >
+      <div class="col-md-3 col-6">
+        <h2>Information</h2>
+        <ul>
+          <li><a href="#">Payment Policy</a></li>
+          <li><a href="#">Return & Refund</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Term & Condition</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-6">
+        <h2>Information</h2>
+        <ul>
+          <li><a href="#">Payment Policy</a></li>
+          <li><a href="#">Return & Refund</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Term & Condition</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h2>Subscribe</h2>
+         <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Your Email Address" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Subscribe</button>
+      </form>
+        <p>Register Now to get updates on promotions Coupons or Download App</p>
+      </div>
+    </div>
+    <div class="row footer-bottom">
+        <div class="col-sm-6">
+          <h2>Payment</h2>
+          <ul>
+            <li><a href="#"><img src="../../../assets/images/mastercard.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/mastercard.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/mastercard.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/mastercard.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/mastercard.png" alt=""></a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <h2>Connect</h2>
+          <ul>
+            <li><a href="#"><img src="../../../assets/images/facebook.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/twitter.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/instagram.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/pinterest.png" alt=""></a></li>
+            <li><a href="#"><img src="../../../assets/images/facebook.png" alt=""></a></li>
+          </ul>
+        </div>
+    </div>
+
+  </div>
+  <div class="row copy_right">
+    <p>All Right Reserved</p>
+</div>
+</footer>
